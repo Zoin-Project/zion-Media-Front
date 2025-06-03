@@ -1,35 +1,38 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import image3 from "../assets/images/background farm.jpg";
 import video1 from "../assets/videos/short example videos.mp4"
 import video2 from "../assets/videos/short example videos2.mp4"
+import video3 from "../assets/videos/short example videos2.mp4"
 
 const slides = [
   {
     id: 1,
-    bgVideo: video1,
-    title: 'Farm Company',
-    content: 'Premium organic produce grown with sustainable methods.',
-    ctaText: 'Discover More',
-    ctaLink: '/about',
+    type: 'video',
+    bgURL: video1,
+    title: 'CineWorld Studios',
+    content: 'Bringing captivating stories to life through award-winning cinema productions.',
+    ctaText: 'Explore Our Work',
+    ctaLink: '/projects',
     shapes: ['/images/shape1.png', '/images/shape2.png']
   },
   {
     id: 2,
-    bgVideo: video2,
-    title: 'Best Harvest',
-    content: 'Fresh from our fields to your table.',
-    ctaText: 'View Products',
-    ctaLink: '/products'
+    type: 'video',
+    bgURL: video2,
+    title: 'PixelPlay Media',
+    content: 'Innovative digital content and visual experiences for brands worldwide.',
+    ctaText: 'Our Services',
+    ctaLink: '/services'
   },
   {
     id: 3,
-    bgImage: image3,
-    title: 'Best Harvest',
-    content: 'Fresh from our fields to your table.',
-    ctaText: 'View Products',
-    ctaLink: '/products'
+    type: 'video',
+    bgURL: video3,
+    title: 'Visionary Broadcast',
+    content: 'Delivering cutting-edge live broadcasts and immersive media experiences.',
+    ctaText: 'See Broadcasts',
+    ctaLink: '/broadcasts'
   }
 ];
 
@@ -91,12 +94,6 @@ const HeroSection = () => {
           animate="center"
           exit="exit"
           className="absolute inset-0 mx-auto w-full h-full flex items-center justify-center"
-        // style={{
-        //   backgroundImage: `url(${slides[currentIndex].bgImage})`,
-        //   backgroundSize: 'cover',
-        //   backgroundPosition: 'center',
-        //   animation: "kenburns 15s ease-in-out infinite alternate",
-        // }} 
         >
           <style>
             {`
@@ -110,7 +107,7 @@ const HeroSection = () => {
             }
           `}
           </style>
-          {slides[currentIndex].bgVideo ? (
+          {slides[currentIndex].type === 'video' ? (
             <video
               autoPlay
               loop
@@ -120,13 +117,13 @@ const HeroSection = () => {
               style={{
                 animation: "kenburns 15s ease-in-out infinite alternate",
               }}
-              src={slides[currentIndex].bgVideo}
+              src={slides[currentIndex].bgURL}
             />
           ) : (
             <div
               className="absolute inset-0 w-full h-full bg-center bg-cover"
               style={{
-                backgroundImage: `url(${slides[currentIndex].bgImage})`,
+                backgroundImage: `url(${slides[currentIndex].bgURL})`,
                 animation: "kenburns 15s ease-in-out infinite alternate",
               }}
             />

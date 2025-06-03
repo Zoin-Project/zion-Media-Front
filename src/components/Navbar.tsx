@@ -7,6 +7,7 @@ import { HiOutlineMenu } from "react-icons/hi";
 import { RiArrowRightSLine } from "react-icons/ri";
 
 import "/node_modules/flag-icons/css/flag-icons.min.css";
+import { NavigationMenuDemo } from "./NavigationMenuDemo";
 
 const Navbar = () => {
   const location = useLocation();
@@ -38,18 +39,18 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 z-10 w-full p-4 duration-300 shadow-md ${isHomePage
-          ? isScrolled || isHovered
-            ? "sticky bg-primary/80 shadow-lg backdrop-blur-md"
-            : "bg-transparent shadow-none"
-          : "bg-primary shadow-lg"
+      className={`fixed top-0 z-10 w-full p-3 duration-300 shadow-md ${isHomePage
+        ? isScrolled || isHovered
+          ? "sticky bg-purple-900/80 shadow-lg backdrop-blur-sm"
+          : "bg-transparent shadow-none"
+        : "bg-purple-900/80 shadow-lg backdrop-blur-sm"
         }`}
-      //className={`shadow-md p-4 w-full top-0 z-10 duration-300 ${isHomePage ? (isScrolled || isHovered ? "bg-primary shadow-lg" : "bg-transparent shadow-none") : "bg-primary shadow-lg"} ${isHomePage ? "fixed" : "relative"}`
-      //}
+      // className={`shadow-md p-3 w-full top-0 z-10 duration-300 ${isHomePage ? (isScrolled || isHovered ? "bg-purple-900/70 shadow-lg backdrop-blur-md" : "bg-transparent shadow-none") : "bg-purple-900/70 shadow-lg backdrop-blur-md"} ${isHomePage ? "fixed" : "relative"}`
+      // }
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="mx-auto max-w-7xl flex justify-between items-center">
+      <div className="relative mx-auto max-w-7xl flex justify-between items-center">
         <Link to="/" className="text-2xl font-bold text-white">ZionMedia</Link>
         <button onClick={() => setOpen(!open)} className="md:hidden">
           <HiOutlineMenu className="text-white h-6 w-6" />
@@ -62,7 +63,7 @@ const Navbar = () => {
             <li><Link to="/about" className="block py-2 px-4">{t('nav.about')}</Link></li>
             <li><Link to="/contact" className="block py-2 px-4">{t('nav.contact')}</Link></li>
           </ul>
-
+          {/* <NavigationMenuDemo /> */}
         </div>
         <div className="hidden md:flex space-x-6">
           <div className="relative md:flex items-center cursor-pointer"
@@ -109,7 +110,7 @@ const Navbar = () => {
             )}
           </div>
 
-          <button className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-br from-purple-500 to-purple-800 hover:from-purple-600 hover:to-purple-900 text-white rounded-md transition-all shadow-lg">
+          <button className="inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-br from-purple-500 to-purple-800 hover:from-purple-600 hover:to-purple-900 text-white rounded-md transition-all shadow-lg">
             Purchase
             <RiArrowRightSLine className="text-xl" />
           </button>
