@@ -24,4 +24,5 @@ dist-ssr
 *.sw?
 
 # videos 
-/videos/
+src/assets/videos/
+
